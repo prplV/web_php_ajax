@@ -13,7 +13,7 @@
 <body>
     <div class="header">
         <h1>To-Do List</h1>
-        <a href="admin.php" class="routes-header">Main</a>
+        <a href="get_admin.php" class="routes-header">Main</a>
         <a href="add.php" class="routes-header">Add new To-Do</a>
     </div>
     <div class="container">
