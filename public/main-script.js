@@ -1,6 +1,6 @@
 $(document).ready(function() {
     function addTask(taskText, isCompleted) {
-        const task = $('<li></li>').text(taskText);
+        const task = $('<li class="taskbar"></li>').text(taskText);
         const completeButton = $('<button></button>').text('Complete').click(function() {
             $(this).parent().appendTo('#completed-tasks ul').addClass('completed');
             $(this).remove();
@@ -12,13 +12,15 @@ $(document).ready(function() {
         task.append(completeButton).append(deleteButton);
         
         if (isCompleted) {
-            task.appendTo('#completed-tasks ul').addClass('completed');
+            task.appendTo('#completed-ttasks ul').addClass('completed');
             completeButton.remove();
         } else {
             task.appendTo('#active-tasks ul');
         }
     }
-
+    $('li').on('click', function () {
+        alert();
+    });
     $('#add-task-button').click(function() {
         const taskText = $('#new-task').val();
         if (taskText) {
@@ -26,12 +28,10 @@ $(document).ready(function() {
             $('#new-task').val('');
         }
     });
-
     const tasks = [
         { text: 'Buy groceries', completed: false },
         { text: 'Walk the dog', completed: true },
         { text: 'Read a book', completed: false }
     ];
-
     tasks.forEach(task => addTask(task.text, task.completed));
 });
